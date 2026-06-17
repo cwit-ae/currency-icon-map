@@ -60,7 +60,6 @@ function toAlpha2(rawName) {
     'Bolivia (Plurinational State Of)': 'BO',
     'Venezuela (Bolivarian Republic Of)': 'VE',
     'Iran (Islamic Republic Of)': 'IR',
-    "Korea (The Democratic People's Republic Of)": 'KP',
     'Korea (The Republic Of)': 'KR',
     'Moldova (The Republic Of)': 'MD',
     'Taiwan (Province Of China)': 'TW',
