@@ -35,4 +35,4 @@ Initial release.
   queries) and an icon-name-validity test suite that fails CI if any mapped name
   does not exist in its target library.
 
-[1.0.0]: https://github.com/bilalsubhani-cwit/currency-icon-map/releases/tag/v1.0.0
+[1.0.0]: https://github.com/cwit-ae/currency-icon-map/releases/tag/v1.0.0

@@ -49,7 +49,7 @@ If you are not sure whether something is in scope, open a discussion-style issue
 
 ## Reporting Issues
 
-Please use the [issue tracker](https://github.com/bilalsubhani-cwit/currency-icon-map/issues) and pick the template that best matches what you are reporting:
+Please use the [issue tracker](https://github.com/cwit-ae/currency-icon-map/issues) and pick the template that best matches what you are reporting:
 
 - **Bug report** — for crashes, incorrect resolutions, type-definition issues.
 - **Wrong icon** — for a currency that resolves to the wrong (or fallback) icon name.
@@ -81,7 +81,7 @@ For small, self-contained changes (typo fixes, additional regression tests, narr
 currency-icon-map requires Node.js 18 or later.
 
 ```bash
-git clone https://github.com/bilalsubhani-cwit/currency-icon-map.git
+git clone https://github.com/cwit-ae/currency-icon-map.git
 cd currency-icon-map
 npm install
 npm run lint
@@ -216,7 +216,7 @@ Contributors do not publish releases. Releases are cut by the maintainers and go
 
 ## Security Disclosures
 
-If you believe you have found a security issue — for example, an input that causes the resolver to crash, hang, or consume unbounded memory — please **do not** open a public issue. Instead, contact the maintainers privately via the email listed on the npm page for `currency-icon-map`, or open a GitHub Security Advisory at <https://github.com/bilalsubhani-cwit/currency-icon-map/security/advisories>.
+If you believe you have found a security issue — for example, an input that causes the resolver to crash, hang, or consume unbounded memory — please **do not** open a public issue. Instead, contact the maintainers privately via the email listed on the npm page for `currency-icon-map`, or open a GitHub Security Advisory at <https://github.com/cwit-ae/currency-icon-map/security/advisories>.
 
 We aim to acknowledge security reports within five business days.
 

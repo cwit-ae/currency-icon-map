@@ -46,7 +46,7 @@ This Code of Conduct applies within all community spaces — the GitHub reposito
 
 If you experience or witness behaviour that violates this Code of Conduct, please report it through one of the following channels:
 
-1. **Preferred — private GitHub Security Advisory:** open a draft advisory at <https://github.com/bilalsubhani-cwit/currency-icon-map/security/advisories/new> and mark it as a Code of Conduct concern in the title. Only the maintainers see the report.
+1. **Preferred — private GitHub Security Advisory:** open a draft advisory at <https://github.com/cwit-ae/currency-icon-map/security/advisories/new> and mark it as a Code of Conduct concern in the title. Only the maintainers see the report.
 2. **Email the maintainers privately.** Refer to the maintainer contact listed on the [npm page for `currency-icon-map`](https://www.npmjs.com/package/currency-icon-map).
 
 When you submit a report, please include — as much as is practical:
