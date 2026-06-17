@@ -22,7 +22,7 @@ give an attacker time to exploit the issue before users have updated.
 Use one of the following private channels instead:
 
 1. **Preferred — GitHub Security Advisories:** open a draft advisory at
-   <https://github.com/bilalsubhani-cwit/currency-icon-map/security/advisories/new>. Only
+   <https://github.com/cwit-ae/currency-icon-map/security/advisories/new>. Only
    the maintainers see the report. GitHub provides a private fork for
    coordinated patch development.
 2. Email the maintainers privately. Refer to the maintainer contact listed on

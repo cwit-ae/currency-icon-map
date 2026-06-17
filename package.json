@@ -72,12 +72,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bilalsubhani-cwit/currency-icon-map.git"
+    "url": "git+https://github.com/cwit-ae/currency-icon-map.git"
   },
   "bugs": {
-    "url": "https://github.com/bilalsubhani-cwit/currency-icon-map/issues"
+    "url": "https://github.com/cwit-ae/currency-icon-map/issues"
   },
-  "homepage": "https://github.com/bilalsubhani-cwit/currency-icon-map#readme",
+  "homepage": "https://github.com/cwit-ae/currency-icon-map#readme",
   "engines": {
     "node": ">=18"
   },

@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/currency-icon-map"><img src="https://img.shields.io/npm/v/currency-icon-map?style=flat-square&color=1a1a2e" alt="npm version" /></a>
-  <a href="https://github.com/bilalsubhani-cwit/currency-icon-map/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/bilalsubhani-cwit/currency-icon-map/ci.yml?branch=main&style=flat-square&color=1a1a2e&label=CI" alt="CI status" /></a>
-  <a href="https://github.com/bilalsubhani-cwit/currency-icon-map/actions/workflows/codeql.yml"><img src="https://img.shields.io/github/actions/workflow/status/bilalsubhani-cwit/currency-icon-map/codeql.yml?branch=main&style=flat-square&color=1a1a2e&label=CodeQL" alt="CodeQL status" /></a>
+  <a href="https://github.com/cwit-ae/currency-icon-map/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/cwit-ae/currency-icon-map/ci.yml?branch=main&style=flat-square&color=1a1a2e&label=CI" alt="CI status" /></a>
+  <a href="https://github.com/cwit-ae/currency-icon-map/actions/workflows/codeql.yml"><img src="https://img.shields.io/github/actions/workflow/status/cwit-ae/currency-icon-map/codeql.yml?branch=main&style=flat-square&color=1a1a2e&label=CodeQL" alt="CodeQL status" /></a>
   <a href="https://www.npmjs.com/package/currency-icon-map"><img src="https://img.shields.io/npm/dm/currency-icon-map?style=flat-square&color=1a1a2e" alt="npm downloads" /></a>
   <a href="https://bundlephobia.com/package/currency-icon-map"><img src="https://img.shields.io/bundlephobia/minzip/currency-icon-map?style=flat-square&color=1a1a2e&label=min%2Bgzip" alt="bundle size" /></a>
   <img src="https://img.shields.io/badge/zero-dependencies-1a1a2e?style=flat-square" alt="zero dependencies" />
@@ -409,7 +409,7 @@ configuration on top of an existing instance.
 - **246 country → currency mappings** (ISO 3166-1 alpha-2 and country name).
 
 Need one we don't ship? Register it on a custom instance, or open a
-[missing-currency issue](https://github.com/bilalsubhani-cwit/currency-icon-map/issues/new/choose).
+[missing-currency issue](https://github.com/cwit-ae/currency-icon-map/issues/new/choose).
 
 ---
 
