@@ -17,9 +17,9 @@ attribution easy for downstream consumers.
 
 The icon-name maps in this package were generated and validated against:
 
-- `lucide-react@0.460.0`
-- `@tabler/icons-react@3.34.0`
-- `@fortawesome/free-solid-svg-icons@6.7.2`
+- `lucide-react@1.20.0`
+- `@tabler/icons-react@3.44.0`
+- `@fortawesome/free-solid-svg-icons@7.2.0`
 - `@heroicons/react@2.2.0`
 
 > **Font Awesome attribution:** Font Awesome Free icons are licensed under

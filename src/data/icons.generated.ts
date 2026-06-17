@@ -4,8 +4,8 @@
  * Per-library currency → icon name (kebab-case) maps. Every name is
  * validated at generation time against the installed icon library.
  *
- * Validated against: lucide-react@0.460.0, @tabler/icons-react@3.34.0,
- * @fortawesome/free-solid-svg-icons@6.7.2, @heroicons/react@2.2.0.
+ * Validated against: lucide-react@1.20.0, @tabler/icons-react@3.44.0,
+ * @fortawesome/free-solid-svg-icons@7.2.0, @heroicons/react@2.2.0.
  * Regenerate with: node scripts/generate-icon-maps.mjs
  */
 
@@ -13,9 +13,9 @@ import type { IconLibrary, IconNames } from '../types.js';
 
 /** Icon library versions these maps were validated against. */
 export const VALIDATED_VERSIONS: Readonly<Record<IconLibrary, string>> = {
-  "lucide": "0.460.0",
-  "tabler": "3.34.0",
-  "fontawesome": "6.7.2",
+  "lucide": "1.20.0",
+  "tabler": "3.44.0",
+  "fontawesome": "7.2.0",
   "heroicons": "2.2.0"
 };
 

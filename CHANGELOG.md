@@ -18,8 +18,8 @@ Initial release.
   digital currencies (BTC, ETH, LTC, XRP, XMR).
 - **Icon-name maps for four libraries** — Lucide, Tabler, Font Awesome (free
   solid), and Heroicons — generated and validated against the pinned versions
-  `lucide-react@0.460.0`, `@tabler/icons-react@3.34.0`,
-  `@fortawesome/free-solid-svg-icons@6.7.2`, and `@heroicons/react@2.2.0`.
+  `lucide-react@1.20.0`, `@tabler/icons-react@3.44.0`,
+  `@fortawesome/free-solid-svg-icons@7.2.0`, and `@heroicons/react@2.2.0`.
 - **Public API**: `getCurrencyIcon`, `getCurrency`, `resolveIconName`,
   `listCurrencies`, and `createCurrencyIconMap` for custom instances (custom
   default icons, extra currencies, and per-library icon overrides).
