@@ -1,6 +1,6 @@
 {
   "name": "currency-icon-map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Resolve any currency (ISO 4217 code, symbol, name, or country) to the right icon name for Lucide, Tabler, Font Awesome, and Heroicons — with a guaranteed default fallback. Zero runtime dependencies, fully offline, with optional React adapters.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
