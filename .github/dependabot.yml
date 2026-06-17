@@ -20,6 +20,13 @@ updates:
           - "@tabler/icons-react"
           - "@heroicons/react"
           - "@fortawesome/*"
+    ignore:
+      # TypeScript majors ship breaking deprecations (e.g. 6.0 removed the
+      # "node" moduleResolution) and outpace ts-jest support. Pin to 5.x and
+      # adopt a new major deliberately, not via an auto-PR. Minor/patch within
+      # the current major are still proposed.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
     commit-message:
       prefix: deps
       prefix-development: deps-dev
