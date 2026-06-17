@@ -1,0 +1,62 @@
+name: Missing or wrong currency
+description: A currency we don't ship, or a country/symbol/name that resolves to the wrong currency.
+title: "[Currency]: "
+labels: ["data", "currency", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Currency and country data drives the whole package. Note that the dataset is **generated** — fixes are made in `scripts/generate-currencies.mjs` and regenerated, never by editing `*.generated.ts` directly.
+
+  - type: input
+    id: package-version
+    attributes:
+      label: currency-icon-map version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What's wrong?
+      options:
+        - A currency is missing entirely
+        - A country resolves to the wrong currency
+        - A symbol resolves to the wrong currency
+        - A name/alias does not resolve
+        - The currency name, symbol, or minor units are incorrect
+    validations:
+      required: true
+
+  - type: input
+    id: query
+    attributes:
+      label: Query you tried
+      description: The exact string passed to `getCurrencyIcon` / `getCurrency`.
+      placeholder: 'getCurrency("Cabo Verde")'
+    validations:
+      required: true
+
+  - type: input
+    id: expected
+    attributes:
+      label: Expected currency (ISO 4217 code)
+      placeholder: "CVE"
+    validations:
+      required: true
+
+  - type: input
+    id: actual
+    attributes:
+      label: Actual result
+      description: The code you got back, or "null / unmatched".
+      placeholder: "null"
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Authoritative source
+      description: A link confirming the correct data (ISO 4217 list, a central bank, Wikipedia, etc.). Helps us verify quickly.

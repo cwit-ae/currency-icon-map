@@ -1,0 +1,72 @@
+name: Wrong icon mapping
+description: A currency maps to a suboptimal icon when a better dedicated icon exists in that library.
+title: "[Icon]: "
+labels: ["icon-map", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Note: a currency falling back to a generic coin/banknote because the library ships **no** dedicated icon for it is expected behaviour, not a bug. File this only when a **better, existing** icon was missed.
+
+        Icon maps are **generated and validated** against pinned library versions in `scripts/generate-icon-maps.mjs`. Any suggested icon name must exist in the target library or the build will reject it.
+
+  - type: input
+    id: package-version
+    attributes:
+      label: currency-icon-map version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: library
+    attributes:
+      label: Icon library
+      options:
+        - Lucide
+        - Tabler
+        - Font Awesome
+        - Heroicons
+    validations:
+      required: true
+
+  - type: input
+    id: currency
+    attributes:
+      label: Currency code
+      placeholder: "SAR"
+    validations:
+      required: true
+
+  - type: input
+    id: current
+    attributes:
+      label: Current icon name
+      description: What `resolveIconName(code, library)` returns today.
+      placeholder: "currency-riyal"
+    validations:
+      required: true
+
+  - type: input
+    id: suggested
+    attributes:
+      label: Suggested icon name
+      description: The icon name you believe is better. It MUST exist in the named library version.
+      placeholder: "currency-dirham"
+    validations:
+      required: true
+
+  - type: input
+    id: library-version
+    attributes:
+      label: Icon library version
+      description: Which version of the icon library ships the suggested icon.
+      placeholder: "@tabler/icons-react@3.34.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: Why the suggested icon is a better match.

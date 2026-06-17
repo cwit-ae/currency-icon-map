@@ -1,0 +1,133 @@
+{
+  "name": "currency-icon-map",
+  "version": "1.0.0",
+  "description": "Resolve any currency (ISO 4217 code, symbol, name, or country) to the right icon name for Lucide, Tabler, Font Awesome, and Heroicons — with a guaranteed default fallback. Zero runtime dependencies, fully offline, with optional React adapters.",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./data": {
+      "import": "./dist/esm/data/index.js",
+      "require": "./dist/cjs/data/index.js",
+      "types": "./dist/types/data/index.d.ts"
+    },
+    "./lucide": {
+      "import": "./dist/esm/adapters/lucide.js",
+      "require": "./dist/cjs/adapters/lucide.js",
+      "types": "./dist/types/adapters/lucide.d.ts"
+    },
+    "./tabler": {
+      "import": "./dist/esm/adapters/tabler.js",
+      "require": "./dist/cjs/adapters/tabler.js",
+      "types": "./dist/types/adapters/tabler.d.ts"
+    },
+    "./fontawesome": {
+      "import": "./dist/esm/adapters/fontawesome.js",
+      "require": "./dist/cjs/adapters/fontawesome.js",
+      "types": "./dist/types/adapters/fontawesome.d.ts"
+    },
+    "./heroicons": {
+      "import": "./dist/esm/adapters/heroicons.js",
+      "require": "./dist/cjs/adapters/heroicons.js",
+      "types": "./dist/types/adapters/heroicons.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "NOTICES"
+  ],
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "currency",
+    "icon",
+    "icons",
+    "iso-4217",
+    "lucide",
+    "tabler",
+    "fontawesome",
+    "heroicons",
+    "react",
+    "currency-symbol",
+    "money",
+    "forex",
+    "fintech",
+    "mapping",
+    "svg"
+  ],
+  "author": "Bilal Subhani - CWIT",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bilalsubhani-cwit/currency-icon-map.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bilalsubhani-cwit/currency-icon-map/issues"
+  },
+  "homepage": "https://github.com/bilalsubhani-cwit/currency-icon-map#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "@fortawesome/free-solid-svg-icons": ">=6.0.0",
+    "@fortawesome/react-fontawesome": ">=0.2.0",
+    "@heroicons/react": ">=2.0.0",
+    "@tabler/icons-react": ">=3.0.0",
+    "lucide-react": ">=0.300.0",
+    "react": ">=17"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "lucide-react": {
+      "optional": true
+    },
+    "@tabler/icons-react": {
+      "optional": true
+    },
+    "@fortawesome/react-fontawesome": {
+      "optional": true
+    },
+    "@fortawesome/free-solid-svg-icons": {
+      "optional": true
+    },
+    "@heroicons/react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@heroicons/react": "^2.2.0",
+    "@tabler/icons-react": "^3.34.0",
+    "@types/jest": "^30.0.0",
+    "@types/react": "^19.0.0",
+    "currency-codes": "^2.2.0",
+    "currency-symbol-map": "^5.1.0",
+    "i18n-iso-countries": "^7.14.0",
+    "jest": "^30.3.0",
+    "lucide-react": "^0.460.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.0"
+  },
+  "overrides": {
+    "js-yaml": "4.2.0"
+  }
+}

@@ -1,0 +1,36 @@
+name: Feature request
+description: Suggest a new capability — a new icon library/adapter, API method, or option.
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea. For larger changes, please describe the use case clearly so we can agree on direction before any code is written.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / use case
+      description: What are you trying to do that the package doesn't support today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What you'd like to see. For a new icon library, link it and note its npm package and license.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches you weighed, including custom instances (`createCurrencyIconMap`).
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
