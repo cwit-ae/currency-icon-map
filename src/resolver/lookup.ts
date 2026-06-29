@@ -62,6 +62,14 @@ export function buildContext(
 ): ResolverContext {
   const defaultIcons: IconNames = { ...DEFAULT_ICONS, ...defaultIconsOverride };
 
+  // Normalize extraIcons keys to canonical codes so `doge` and `DOGE` address
+  // the same currency; merge (rather than replace) when two keys collide.
+  const extraIconsByCode: Record<string, Partial<IconNames>> = {};
+  for (const [rawCode, overrides] of Object.entries(extraIcons)) {
+    const code = normalizeCode(rawCode);
+    extraIconsByCode[code] = { ...extraIconsByCode[code], ...overrides };
+  }
+
   // Extras take priority over built-ins on code collision.
   const byCode = new Map<string, Currency>();
   const currencies: Currency[] = [];
@@ -114,7 +122,7 @@ export function buildContext(
   const iconsByCode = new Map<string, IconNames>();
   for (const c of currencies) {
     const code = normalizeCode(c.code);
-    iconsByCode.set(code, iconsForCode(code, defaultIcons, extraIcons[code]));
+    iconsByCode.set(code, iconsForCode(code, defaultIcons, extraIconsByCode[code]));
   }
 
   return {

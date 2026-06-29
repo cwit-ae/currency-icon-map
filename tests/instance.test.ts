@@ -57,4 +57,36 @@ describe('createCurrencyIconMap', () => {
     expect(layered.getCurrency('DOGE')?.code).toBe('DOGE');
     expect(layered.getCurrencyIcon('nope').icons.lucide).toBe('wallet');
   });
+
+  it('normalizes extraIcons keys (case-insensitive)', () => {
+    const map = createCurrencyIconMap({
+      extraCurrencies: [DOGE],
+      extraIcons: { doge: { tabler: 'currency-dogecoin' } }, // lowercase key
+    });
+    expect(map.getCurrencyIcon('DOGE').icons.tabler).toBe('currency-dogecoin');
+  });
+
+  it('deep-merges extraIcons across configure() layers per currency', () => {
+    const base = createCurrencyIconMap({
+      extraCurrencies: [DOGE],
+      extraIcons: { DOGE: { tabler: 'currency-dogecoin' } },
+    });
+    // Adding a Lucide override later must NOT wipe the earlier Tabler one.
+    const layered = base.configure({ extraIcons: { doge: { lucide: 'bitcoin' } } });
+    const icons = layered.getCurrencyIcon('DOGE').icons;
+    expect(icons.tabler).toBe('currency-dogecoin'); // preserved
+    expect(icons.lucide).toBe('bitcoin'); // added
+  });
+
+  it('validates extra-currency field types', () => {
+    const bad = (overrides: Record<string, unknown>) => () =>
+      createCurrencyIconMap({ extraCurrencies: [{ ...DOGE, ...overrides } as unknown as Currency] });
+    expect(bad({ minorUnits: -1 })).toThrow(/minorUnits/);
+    expect(bad({ minorUnits: 2.5 })).toThrow(/minorUnits/);
+    expect(bad({ symbol: '' })).toThrow(/symbol/);
+    expect(bad({ crypto: 'yes' })).toThrow(/crypto/);
+    expect(bad({ numeric: 123 })).toThrow(/numeric/);
+    expect(bad({ countries: ['US', 42] })).toThrow(/countries/);
+    expect(bad({ aliases: [null] })).toThrow(/aliases/);
+  });
 });

@@ -1,6 +1,6 @@
 {
   "name": "currency-icon-map",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Resolve any currency (ISO 4217 code, symbol, name, or country) to the right icon name for Lucide, Tabler, Font Awesome, and Heroicons — with a guaranteed default fallback. Zero runtime dependencies, fully offline, with optional React adapters.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -43,11 +43,13 @@
     "NOTICES"
   ],
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs",
+    "build": "npm run build:esm && npm run build:cjs && npm run build:pkg",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:pkg": "node scripts/write-dist-pkgjson.mjs",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
+    "smoke": "node scripts/smoke-pack.mjs",
     "lint": "tsc --noEmit",
     "prepublishOnly": "npm run build"
   },
@@ -82,6 +84,7 @@
     "node": ">=18"
   },
   "peerDependencies": {
+    "@fortawesome/fontawesome-svg-core": ">=6.0.0",
     "@fortawesome/free-solid-svg-icons": ">=6.0.0",
     "@fortawesome/react-fontawesome": ">=0.2.0",
     "@heroicons/react": ">=2.0.0",
@@ -100,6 +103,9 @@
       "optional": true
     },
     "@fortawesome/react-fontawesome": {
+      "optional": true
+    },
+    "@fortawesome/fontawesome-svg-core": {
       "optional": true
     },
     "@fortawesome/free-solid-svg-icons": {

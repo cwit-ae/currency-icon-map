@@ -4,6 +4,37 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] — 2026-06-17
+
+### Fixed
+
+- **Dual-package (ESM/CJS) resolution.** The build now emits
+  `dist/esm/package.json` (`type: module`) and `dist/cjs/package.json`
+  (`type: commonjs`) so native `import "currency-icon-map"` works on Node 18/20,
+  not only `require()`. Added a packed-tarball smoke test (`npm run smoke`, in
+  CI) that installs the real tarball into ESM and CommonJS consumers.
+- Added `@fortawesome/fontawesome-svg-core` as an optional peer dependency (the
+  Font Awesome adapter and README require it).
+- `configure()` now deep-merges `extraIcons` per currency code, so adding a
+  later override for one library no longer wipes an earlier override for another.
+- `extraIcons` keys are normalized (case-insensitive), so `doge` and `DOGE`
+  address the same currency.
+- Fuller validation of `extraCurrencies` (numeric, symbol, minorUnits, crypto,
+  and array element types).
+
+### Changed
+
+- Documented that the React adapters are not tree-shakeable; the headless
+  `resolveIconName` API is the recommended path for size-sensitive bundles.
+
+## [1.0.1] — 2026-06-17
+
+### Changed
+
+- Upgraded validated icon libraries to `lucide-react@1.20.0`,
+  `@tabler/icons-react@3.44.0`, and `@fortawesome/free-solid-svg-icons@7.2.0`
+  (with `react@19` / FA v7 adapter stack) and regenerated the icon maps.
+
 ## [1.0.0] — 2026-06-17
 
 Initial release.
@@ -35,4 +66,6 @@ Initial release.
   queries) and an icon-name-validity test suite that fails CI if any mapped name
   does not exist in its target library.
 
+[1.0.2]: https://github.com/cwit-ae/currency-icon-map/releases/tag/v1.0.2
+[1.0.1]: https://github.com/cwit-ae/currency-icon-map/releases/tag/v1.0.1
 [1.0.0]: https://github.com/cwit-ae/currency-icon-map/releases/tag/v1.0.0

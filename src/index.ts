@@ -106,10 +106,40 @@ function validateExtraCurrencies(extra: Currency[]): void {
     if (typeof c.name !== 'string' || c.name.length === 0) {
       throw new TypeError(`currency-icon-map: extra currency "${c.code}" has invalid "name"`);
     }
-    if (!Array.isArray(c.countries) || !Array.isArray(c.aliases)) {
-      throw new TypeError(`currency-icon-map: extra currency "${c.code}" has invalid countries/aliases`);
+    if (typeof c.numeric !== 'string') {
+      throw new TypeError(`currency-icon-map: extra currency "${c.code}" has invalid "numeric" (must be a string)`);
+    }
+    if (typeof c.symbol !== 'string' || c.symbol.length === 0) {
+      throw new TypeError(`currency-icon-map: extra currency "${c.code}" has invalid "symbol"`);
+    }
+    if (typeof c.minorUnits !== 'number' || !Number.isInteger(c.minorUnits) || c.minorUnits < 0) {
+      throw new TypeError(`currency-icon-map: extra currency "${c.code}" has invalid "minorUnits" (must be a non-negative integer)`);
+    }
+    if (typeof c.crypto !== 'boolean') {
+      throw new TypeError(`currency-icon-map: extra currency "${c.code}" has invalid "crypto" (must be a boolean)`);
+    }
+    if (!Array.isArray(c.countries) || !c.countries.every((x) => typeof x === 'string')) {
+      throw new TypeError(`currency-icon-map: extra currency "${c.code}" has invalid "countries" (must be a string[])`);
+    }
+    if (!Array.isArray(c.aliases) || !c.aliases.every((x) => typeof x === 'string')) {
+      throw new TypeError(`currency-icon-map: extra currency "${c.code}" has invalid "aliases" (must be a string[])`);
     }
   }
+}
+
+/** Deep-merge two extraIcons maps per currency code (case-insensitive keys). */
+function mergeExtraIcons(
+  base: Record<string, Partial<IconNames>> = {},
+  next: Record<string, Partial<IconNames>> = {},
+): Record<string, Partial<IconNames>> {
+  const merged: Record<string, Partial<IconNames>> = {};
+  for (const source of [base, next]) {
+    for (const [rawCode, overrides] of Object.entries(source)) {
+      const code = rawCode.trim().toUpperCase();
+      merged[code] = { ...merged[code], ...overrides };
+    }
+  }
+  return merged;
 }
 
 /** A currency-icon-map instance bound to a particular configuration. */
@@ -190,10 +220,13 @@ function createInstance(config?: CurrencyIconMapConfig): CurrencyIconMap {
 
     configure(next: CurrencyIconMapConfig): CurrencyIconMap {
       // Layer: merge extras and default-icon overrides over the current ones.
+      // extraIcons are deep-merged per currency code so that adding a Lucide
+      // override later does not wipe an earlier Tabler override for the same
+      // currency.
       return createInstance({
         defaultIcons: { ...config?.defaultIcons, ...next.defaultIcons },
         extraCurrencies: [...(next.extraCurrencies ?? []), ...extraCurrencies],
-        extraIcons: { ...config?.extraIcons, ...next.extraIcons },
+        extraIcons: mergeExtraIcons(config?.extraIcons, next.extraIcons),
       });
     },
   };

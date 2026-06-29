@@ -308,6 +308,22 @@ Each adapter also exports name/definition helpers: `getLucideIcon` /
 `getFontAwesomeIconDefinition` / `getFontAwesomeIconName`, and `getHeroIcon` /
 `getHeroIconName`.
 
+> **⚠️ Bundle size:** the adapters resolve components by name from the icon
+> library's full namespace (`import * as Icons`), so most bundlers **cannot
+> tree-shake** them — importing an adapter can pull in a large share of the icon
+> package. They're built for convenience (prototypes, internal tools,
+> server-rendered apps). For a size-sensitive client bundle, skip the adapter
+> and use the headless `resolveIconName` with your own explicit imports so the
+> bundler keeps only the icons you use:
+>
+> ```tsx
+> import { resolveIconName } from "currency-icon-map";
+> import { DollarSign, Euro, Coins } from "lucide-react";
+>
+> const ICONS = { "dollar-sign": DollarSign, euro: Euro, coins: Coins };
+> const Icon = ICONS[resolveIconName(currency, "lucide")] ?? Coins;
+> ```
+
 ---
 
 ## Resolution Order

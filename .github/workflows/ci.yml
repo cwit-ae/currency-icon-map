@@ -43,3 +43,9 @@ jobs:
 
       - name: Verify tarball contents
         run: npm pack --dry-run
+
+      # Install the packed tarball into real ESM + CommonJS consumer projects
+      # and run import/require — catches dual-package packaging defects that
+      # source tests and `pack --dry-run` cannot.
+      - name: Smoke-test packed tarball (ESM + CJS)
+        run: npm run smoke
